@@ -100,7 +100,6 @@ In the above example using _UIGestureRecognizer_, option 1 is more unambiguous a
 
 **Tip**: You can use the Xcode jump bar to find methods with argument labels.
 
-![Methods in Xcode jump bar](screens/xcode-jump-bar.png)
 
 ### Booleans
 
@@ -233,28 +232,28 @@ In particular, when adding protocol conformance, it is desirable to add a separa
 **Recommended:**
 ```swift
 class MyViewController: UIViewController {
-// код класса
+// ...
 }
 
 // MARK: - UITableViewDataSource
 extension MyViewController: UITableViewDataSource {
-// методы датасорса
+// ...
 }
 
 // MARK: - UIScrollViewDelegate
 extension MyViewController: UIScrollViewDelegate {
-// методы делегата
+// ...
 }
 ```
 
 **Not Recommended:**
 ```swift
 class MyViewController: UIViewController, UITableViewDataSource, UIScrollViewDelegate {
-// все методы
+// ...
 }
 ```
 
-> Это правило не работает в двух случаях:
+> This rule doesn't apply in two cases
 > - When you need an overriding method that is implemented in another extension.
 > - When you're using a class with generics and Objective-C protocols with additional methods (@objc is not supported in extensions of generic classes or classes that inherit from generic classes).
 
@@ -438,7 +437,7 @@ return radius * 2
 }
 ```
 
-Всегда используйте вычисляемое свойство вместо метода без аргументов и побочных эффектов.
+Always use a computed property instead of a method without arguments and side effects
 
 **Recommended:**
 ```swift
